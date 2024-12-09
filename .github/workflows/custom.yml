@@ -89,7 +89,7 @@ on:
         type: boolean
         default: false
       mt7621_oc:
-        description: '0x312'
+        description: '1000Mhz=0x312 1100Mhz=0x362 1120Mhz=0x372 1200Mhz=0x3B2'
         type: choice
         options:
          '0x312'
