@@ -1,4 +1,4 @@
-name: build
+name: Tan
 
 on:
   push:
@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        target: [K2P, K2P-USB]
-        toolchain: [mipsel-linux-musl]
+        target: [K2P]
+        toolchain: [mipsel-linux-Tan]
     steps:
       - uses: actions/checkout@main
       - uses: hendrikmuhs/ccache-action@main
