@@ -1,6 +1,6 @@
 # Build TurBoTse's kernal4.4 Padavan
 
-name: build custom
+name: Tan custom
 
 on:
   workflow_dispatch:
@@ -100,7 +100,7 @@ on:
         description: 'String JSON list of plug-ins'
         required: true
         type: string
-        default: '{"ss":"y","v2ray":"n","xray":"y","trojan":"y","ssobfs":"y","smartdns":"y","vlmcsd":"y","ttyd":"n","iperf3":"n"}'
+        default: '{"ss":"n","v2ray":"n","xray":"y","trojan":"y","ssobfs":"y","smartdns":"y","vlmcsd":"y","ttyd":"n","iperf3":"n"}'
       customization:
         description: 'String JSON list of Customization'
         required: true
@@ -164,8 +164,8 @@ jobs:
           echo "wifi5gssid=${{fromJson(inputs.customization).wifi5gssid}}" >> $GITHUB_ENV
           echo "wifi5gpsk=${{fromJson(inputs.customization).wifi5gpsk}}" >> $GITHUB_ENV
           # plugins
-         # echo "ss=${{fromJson(inputs.plugins).ss}}" >> $GITHUB_ENV
-         # echo "v2ray=${{fromJson(inputs.plugins).v2ray}}" >> $GITHUB_ENV
+          #echo "ss=${{fromJson(inputs.plugins).ss}}" >> $GITHUB_ENV
+          echo "v2ray=${{fromJson(inputs.plugins).v2ray}}" >> $GITHUB_ENV
           echo "xray=${{fromJson(inputs.plugins).xray}}" >> $GITHUB_ENV
           echo "trojan=${{fromJson(inputs.plugins).trojan}}" >> $GITHUB_ENV
           echo "ssobfs=${{fromJson(inputs.plugins).ssobfs}}" >> $GITHUB_ENV
@@ -197,7 +197,7 @@ jobs:
           cp -f configs/templates/${{ matrix.target }}.config .config
           # include plugin
           #echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=${{env.ss}}" >> .config
-          #echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=${{env.v2ray}}" >> .config
+          echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=${{env.v2ray}}" >> .config
           echo "CONFIG_FIRMWARE_INCLUDE_XRAY=${{env.xray}}" >> .config
           echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=${{env.trojan}}" >> .config
           echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=${{env.ssobfs}}" >> .config
