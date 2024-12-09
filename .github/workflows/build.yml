@@ -1,4 +1,4 @@
-name: Tan
+name: build
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         target: [K2P]
-        toolchain: [mipsel-linux-Tan]
+        toolchain: [mipsel-linux-musl]
     steps:
       - uses: actions/checkout@main
       - uses: hendrikmuhs/ccache-action@main
