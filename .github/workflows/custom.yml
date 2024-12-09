@@ -93,9 +93,9 @@ on:
         type: choice
         options:
          '0x312'
-        - '0x362'
-        - '0x372'
-        - '0x3B2'
+         '0x362' 
+         '0x372'
+         '0x3B2'
       plugins:
         description: 'String JSON list of plug-ins'
         required: true
