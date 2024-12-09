@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       target:
-        description: 'Select the router device'
+        description: 'K2P'
         required: true
         type: choice
         options:
@@ -31,7 +31,7 @@ on:
         - JCG-Q20
         - JCG-Q20-PB
         - JCG-Y2
-         K2P
+        - K2P
         - K2P-NANO
         - K2P-USB
         - MI-4
@@ -89,13 +89,13 @@ on:
         type: boolean
         default: false
       mt7621_oc:
-        description: '1000Mhz=0x312 1100Mhz=0x362 1120Mhz=0x372 1200Mhz=0x3B2'
+        description: '0x312'
         type: choice
         options:
          '0x312'
-         #'0x362' 
-         #'0x372'
-        # '0x3B2'
+         '0x362' 
+         '0x372'
+         '0x3B2'
       plugins:
         description: 'String JSON list of plug-ins'
         required: true
@@ -165,7 +165,7 @@ jobs:
           echo "wifi5gpsk=${{fromJson(inputs.customization).wifi5gpsk}}" >> $GITHUB_ENV
           # plugins
           #echo "ss=${{fromJson(inputs.plugins).ss}}" >> $GITHUB_ENV
-          echo "v2ray=${{fromJson(inputs.plugins).v2ray}}" >> $GITHUB_ENV
+          #echo "v2ray=${{fromJson(inputs.plugins).v2ray}}" >> $GITHUB_ENV
           echo "xray=${{fromJson(inputs.plugins).xray}}" >> $GITHUB_ENV
           echo "trojan=${{fromJson(inputs.plugins).trojan}}" >> $GITHUB_ENV
           echo "ssobfs=${{fromJson(inputs.plugins).ssobfs}}" >> $GITHUB_ENV
@@ -197,7 +197,7 @@ jobs:
           cp -f configs/templates/${{ matrix.target }}.config .config
           # include plugin
           #echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=${{env.ss}}" >> .config
-          echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=${{env.v2ray}}" >> .config
+          #echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=${{env.v2ray}}" >> .config
           echo "CONFIG_FIRMWARE_INCLUDE_XRAY=${{env.xray}}" >> .config
           echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=${{env.trojan}}" >> .config
           echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=${{env.ssobfs}}" >> .config
