@@ -93,9 +93,9 @@ on:
         type: choice
         options:
          '0x312'
-         '0x362' 
-         '0x372'
-         '0x3B2'
+         #'0x362' 
+         #'0x372'
+        # '0x3B2'
       plugins:
         description: 'String JSON list of plug-ins'
         required: true
@@ -164,8 +164,8 @@ jobs:
           echo "wifi5gssid=${{fromJson(inputs.customization).wifi5gssid}}" >> $GITHUB_ENV
           echo "wifi5gpsk=${{fromJson(inputs.customization).wifi5gpsk}}" >> $GITHUB_ENV
           # plugins
-         - echo "ss=${{fromJson(inputs.plugins).ss}}" >> $GITHUB_ENV
-         - echo "v2ray=${{fromJson(inputs.plugins).v2ray}}" >> $GITHUB_ENV
+         # echo "ss=${{fromJson(inputs.plugins).ss}}" >> $GITHUB_ENV
+         # echo "v2ray=${{fromJson(inputs.plugins).v2ray}}" >> $GITHUB_ENV
           echo "xray=${{fromJson(inputs.plugins).xray}}" >> $GITHUB_ENV
           echo "trojan=${{fromJson(inputs.plugins).trojan}}" >> $GITHUB_ENV
           echo "ssobfs=${{fromJson(inputs.plugins).ssobfs}}" >> $GITHUB_ENV
@@ -196,8 +196,8 @@ jobs:
           fi
           cp -f configs/templates/${{ matrix.target }}.config .config
           # include plugin
-          -echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=${{env.ss}}" >> .config
-          -echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=${{env.v2ray}}" >> .config
+          #echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=${{env.ss}}" >> .config
+          #echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=${{env.v2ray}}" >> .config
           echo "CONFIG_FIRMWARE_INCLUDE_XRAY=${{env.xray}}" >> .config
           echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=${{env.trojan}}" >> .config
           echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=${{env.ssobfs}}" >> .config
