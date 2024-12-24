@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       target:
-        description: 'Select the router device'
+        description: 'XY-C1'
         required: true
         type: choice
         options:
