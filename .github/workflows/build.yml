@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        target: [XY-C5]
+        target: [XY-C1]
         toolchain: [mipsel-linux-musl]
     steps:
       - uses: actions/checkout@main
