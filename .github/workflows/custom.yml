@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       target:
-        description: 'K2P'
+        description: 'XY-C1'
         required: true
         type: choice
         options:
